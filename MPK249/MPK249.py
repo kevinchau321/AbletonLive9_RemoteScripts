@@ -72,5 +72,6 @@ class MPK249(ControlSurface):
             transport = TransportComponent(name='Transport', is_enabled=False, layer=Layer(play_button=midimap['Play'], record_button=midimap['Record'], stop_button=midimap['Stop'], seek_forward_button=midimap['Forward'], seek_backward_button=midimap['Backward'], loop_button=midimap['Loop']))
             transport.set_enabled(True)
             mixer_size = len(midimap['Sliders'])
-            mixer = MixerComponent(mixer_size, name='Mixer', is_enabled=False, layer=Layer(volume_controls=midimap['Sliders'], pan_controls=midimap['Encoders'], arm_buttons=midimap['Arm_Buttons']))
+            mixer = MixerComponent(mixer_size, name='Mixer', is_enabled=False, layer=Layer(volume_controls=midimap['Sliders'], send_controls=midimap['Encoders'], arm_buttons=midimap['Arm_Buttons']))
+            mixer._set_send_index(2);
             mixer.set_enabled(True)
